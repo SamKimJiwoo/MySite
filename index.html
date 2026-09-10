@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jiwoo1119 Sites</title>
+    <title>안녕하세요! 사이트에 오셔서 감사합니다!</title>
     <!-- 구글 폰트 연결 -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
     <!-- 폰트어썸 아이콘 CDN 연결 -->
@@ -130,6 +130,7 @@
             gap: 10px;
         }
 
+        /* 사양 및 폰 태그 누를 때 붕 뜨는 효과 */
         .skill-tag {
             background-color: #111111;
             border: 1px solid rgba(255, 255, 255, 0.15);
@@ -137,6 +138,15 @@
             border-radius: 20px;
             font-size: 0.9rem;
             color: #cccccc;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .skill-tag:hover, .skill-tag:active {
+            transform: translateY(-5px);
+            background-color: #ffffff;
+            color: #000000;
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.4);
         }
 
         .project-card {
@@ -159,7 +169,7 @@
             color: #888888;
         }
 
-        /* 챗봇 스타일 */
+        /* 챗봇 버튼 스타일 */
         #chatbot-toggle-btn {
             position: fixed;
             bottom: 25px;
@@ -185,6 +195,18 @@
             box-shadow: 0 0 25px rgba(255, 255, 255, 0.8);
         }
 
+        /* 챗봇 창 애니메이션 (아래에서 위로 날아오기) */
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
         #chatbot-container {
             position: fixed;
             bottom: 95px;
@@ -199,6 +221,12 @@
             z-index: 1000;
             box-shadow: 0 5px 25px rgba(0, 0, 0, 0.8);
             overflow: hidden;
+        }
+
+        /* 열렸을 때 실행될 애니메이션 클래스 */
+        #chatbot-container.active {
+            display: flex;
+            animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
         .chatbot-header {
@@ -288,7 +316,6 @@
             cursor: pointer;
         }
 
-        /* 하단 푸터 (TOTAL 카운터 포함) */
         footer {
             text-align: center;
             padding: 25px;
@@ -389,31 +416,29 @@
 
     <div id="chatbot-container">
         <div class="chatbot-header">
-            <h3>✨ AI 챗봇</h3>
+            <h3>AI 챗봇</h3>
             <button id="chatbot-close-btn"><i class="fa-solid fa-xmark"></i></button>
         </div>
-        <div class="chatbot-messages" id="chatbot-messages">
-            <div class="message bot">안녕하세요! 박지우 님의 AI 비서입니다. 무엇이든 물어보세요!</div>
-        </div>
+        <div class="chatbot-messages" id="chatbot-messages"></div>
         <div class="chatbot-input-area">
             <input type="text" id="chatbot-input" placeholder="메시지를 입력하세요...">
             <button id="chatbot-send-btn">전송</button>
         </div>
     </div>
 
-    <!-- 스크립트: 3.6 모델 적용 및 방문자 수(TOTAL) 카운터 -->
+    <!-- 스크립트: 챗봇 날아오는 애니메이션 + 타자 치는 효과(Typewriter) -->
     <script>
-        // 간단한 방문자 수(TOTAL) 로컬 스토리지 카운터 구현
+        // 방문자 수 카운터
         let visits = localStorage.getItem('site_total_visits');
         if (!visits) {
-            visits = 128; // 초기 기본값 예시
+            visits = 128;
         } else {
             visits = parseInt(visits) + 1;
         }
         localStorage.setItem('site_total_visits', visits);
         document.getElementById('visit-count').textContent = visits;
 
-        // 챗봇 제어
+        // 챗봇 제어 및 애니메이션
         const toggleBtn = document.getElementById('chatbot-toggle-btn');
         const container = document.getElementById('chatbot-container');
         const closeBtn = document.getElementById('chatbot-close-btn');
@@ -421,11 +446,24 @@
         const inputField = document.getElementById('chatbot-input');
         const messagesArea = document.getElementById('chatbot-messages');
 
+        let isWelcomed = false;
+
         toggleBtn.addEventListener('click', () => {
-            container.style.display = container.style.display === 'flex' ? 'none' : 'flex';
+            const isOpen = container.classList.contains('active');
+            if (isOpen) {
+                container.classList.remove('active');
+            } else {
+                container.classList.add('active');
+                // 최초 열릴 때 환영 인사 타자 효과 출력
+                if (!isWelcomed) {
+                    isWelcomed = true;
+                    appendTypewriterMessage("안녕하세요! 박지우 님의 AI 비서입니다. 무엇이든 물어보세요!", 'bot');
+                }
+            }
         });
+
         closeBtn.addEventListener('click', () => {
-            container.style.display = 'none';
+            container.classList.remove('active');
         });
 
         async function handleSendMessage() {
@@ -439,7 +477,6 @@
             const loadingId = appendMessage('생각 중입니다...', 'bot');
 
             try {
-                // 모델을 gemini-3.6-flash로 지정
                 const apiKey = "AQ.Ab8RN6JT2aVrdAeHb4bp7Wcmy3RqhplW49tyEAqC3T7JEIPCcQ"; 
                 const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=${apiKey}`;
 
@@ -454,9 +491,12 @@
                 const data = await response.json();
                 const botReply = data.candidates?.[0]?.content?.parts?.[0]?.text || "답변을 가져오지 못했어요.";
 
-                updateMessage(loadingId, botReply);
+                // 로딩 메시지 제거 후 타이핑 효과로 답변 출력
+                loadingId.remove();
+                appendTypewriterMessage(botReply, 'bot');
             } catch (error) {
-                updateMessage(loadingId, "오류가 발생했습니다. API Key나 네트워크를 확인해주세요.");
+                loadingId.remove();
+                appendMessage("오류가 발생했습니다. API Key나 네트워크를 확인해주세요.", 'bot');
             }
         }
 
@@ -474,9 +514,25 @@
             return msgDiv;
         }
 
-        function updateMessage(msgElement, newText) {
-            msgElement.textContent = newText;
-            messagesArea.scrollTop = messagesArea.scrollHeight;
+        // 타자 치는 효과(Typewriter) 함수
+        function appendTypewriterMessage(text, sender) {
+            const msgDiv = document.createElement('div');
+            msgDiv.classList.add('message', sender);
+            messagesArea.appendChild(msgDiv);
+
+            let i = 0;
+            const speed = 25; // 타이핑 속도 (밀리초)
+
+            function type() {
+                if (i < text.length) {
+                    msgDiv.textContent += text.charAt(i);
+                    i++;
+                    messagesArea.scrollTop = messagesArea.scrollHeight;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+            return msgDiv;
         }
     </script>
 </body>
