@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jiwoo1119 Sites</title>
-    <!-- 구글 폰트 연결 -->
+    <title>jiwoo1119.kro.kr - Portfolio & AI</title>
+    <!-- 구글 폰트 -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
-    <!-- 폰트어썸 아이콘 CDN 연결 -->
+    <!-- 폰트어썸 아이콘 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -25,7 +25,6 @@
             flex-direction: column;
             min-height: 100vh;
             animation: fadeIn 0.8s ease-in-out;
-            box-shadow: inset 0 0 50px rgba(255, 255, 255, 0.12);
         }
 
         @keyframes fadeIn {
@@ -33,17 +32,20 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        /* 상단 히어로 섹션 (글로우 디자인 적용) */
         .hero {
-            background: #000000;
-            padding: 90px 20px;
+            background: radial-gradient(circle at center, #111111 0%, #000000 70%);
+            padding: 100px 20px;
             text-align: center;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.03);
         }
 
         .profile-img {
-            font-size: 60px;
+            font-size: 65px;
             margin-bottom: 20px;
             animation: bounce 2s infinite;
+            filter: drop-shadow(0 0 10px rgba(255,255,255,0.4));
         }
 
         @keyframes bounce {
@@ -52,7 +54,7 @@
         }
 
         .hero h1 {
-            font-size: 2.3rem;
+            font-size: 2.4rem;
             font-weight: 700;
             margin-bottom: 10px;
             color: #ffffff;
@@ -62,6 +64,7 @@
         .highlight {
             color: #ffffff;
             border-bottom: 2px solid #ffffff;
+            text-shadow: 0 0 10px rgba(255,255,255,0.5);
         }
 
         .tagline {
@@ -80,25 +83,26 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 45px;
-            height: 45px;
-            background-color: #111111;
+            width: 48px;
+            height: 48px;
+            background-color: rgba(20, 20, 20, 0.8);
             border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 50%;
             color: #ffffff;
             font-size: 1.2rem;
             text-decoration: none;
-            transition: all 0.25s ease;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .icon-btn:hover {
             background-color: #ffffff;
             color: #000000;
             border-color: #ffffff;
-            transform: translateY(-3px);
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
         }
 
+        /* 본문 글래스모피즘 컨테이너 */
         .container {
             max-width: 720px;
             width: 100%;
@@ -108,7 +112,7 @@
         }
 
         .section {
-            margin-bottom: 45px;
+            margin-bottom: 50px;
         }
 
         .section h2 {
@@ -124,37 +128,21 @@
             color: #aaaaaa;
         }
 
-        .skills-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        /* 사양 및 폰 태그 누를 때 붕 뜨는 효과 */
-        .skill-tag {
-            background-color: #111111;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            padding: 7px 14px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            color: #cccccc;
-            transition: all 0.2s ease;
-            cursor: pointer;
-        }
-
-        .skill-tag:hover, .skill-tag:active {
-            transform: translateY(-5px);
-            background-color: #ffffff;
-            color: #000000;
-            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.4);
-        }
-
+        /* 입체 반투명 카드 스타일 */
         .project-card {
-            background-color: #0a0a0a;
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            padding: 24px;
-            border-radius: 10px;
+            background: rgba(10, 10, 10, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 14px;
             transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+
+        .project-card:hover {
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(255, 255, 255, 0.08);
         }
 
         .project-card h3 {
@@ -169,37 +157,63 @@
             color: #888888;
         }
 
-        /* 챗봇 버튼 스타일 */
+        /* 사양 및 폰 태그 (누를 때 위로 붕 뜨는 효과) */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background-color: rgba(20, 20, 20, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #cccccc;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+        }
+
+        .skill-tag:hover, .skill-tag:active {
+            transform: translateY(-6px) scale(1.03);
+            background-color: #ffffff;
+            color: #000000;
+            border-color: #ffffff;
+            box-shadow: 0 5px 20px rgba(255, 255, 255, 0.4);
+        }
+
+        /* 챗봇 토글 버튼 */
         #chatbot-toggle-btn {
             position: fixed;
             bottom: 25px;
             right: 25px;
-            width: 55px;
-            height: 55px;
+            width: 58px;
+            height: 58px;
             background-color: #ffffff;
             color: #000000;
             border: none;
             border-radius: 50%;
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             cursor: pointer;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
             z-index: 1000;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
         #chatbot-toggle-btn:hover {
-            transform: scale(1.08);
-            box-shadow: 0 0 25px rgba(255, 255, 255, 0.8);
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 0 35px rgba(255, 255, 255, 0.9);
         }
 
-        /* 챗봇 창 애니메이션 (아래에서 위로 날아오기) */
+        /* 챗봇 창 슬라이드 애니메이션 */
         @keyframes slideUp {
             from {
                 opacity: 0;
-                transform: translateY(30px) scale(0.95);
+                transform: translateY(40px) scale(0.95);
             }
             to {
                 opacity: 1;
@@ -209,29 +223,29 @@
 
         #chatbot-container {
             position: fixed;
-            bottom: 95px;
+            bottom: 100px;
             right: 25px;
-            width: 340px;
-            height: 460px;
-            background-color: #0a0a0a;
+            width: 350px;
+            height: 480px;
+            background: rgba(10, 10, 10, 0.92);
+            backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 12px;
+            border-radius: 16px;
             display: none;
             flex-direction: column;
             z-index: 1000;
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.8);
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.9);
             overflow: hidden;
         }
 
-        /* 열렸을 때 실행될 애니메이션 클래스 */
         #chatbot-container.active {
             display: flex;
-            animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation: slideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
         .chatbot-header {
-            background-color: #111111;
-            padding: 14px 18px;
+            background-color: rgba(20, 20, 20, 0.9);
+            padding: 15px 18px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             display: flex;
             justify-content: space-between;
@@ -242,14 +256,16 @@
             color: #ffffff;
             font-size: 1rem;
             margin: 0;
+            text-shadow: 0 0 8px rgba(255,255,255,0.3);
         }
 
         #chatbot-close-btn {
             background: none;
             border: none;
             color: #888;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             cursor: pointer;
+            transition: color 0.2s;
         }
 
         #chatbot-close-btn:hover { color: #fff; }
@@ -260,21 +276,21 @@
             overflow-y: auto;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 12px;
             font-size: 0.9rem;
         }
 
         .message {
             max-width: 80%;
-            padding: 10px 14px;
-            border-radius: 8px;
+            padding: 11px 14px;
+            border-radius: 10px;
             line-height: 1.4;
             word-break: break-all;
         }
 
         .message.bot {
-            background-color: #1a1a1a;
-            color: #cccccc;
+            background-color: rgba(30, 30, 30, 0.8);
+            color: #dddddd;
             align-self: flex-start;
             border: 1px solid rgba(255, 255, 255, 0.08);
         }
@@ -283,42 +299,61 @@
             background-color: #ffffff;
             color: #000000;
             align-self: flex-end;
+            font-weight: 500;
         }
 
         .chatbot-input-area {
             display: flex;
-            padding: 10px;
-            background-color: #111111;
+            align-items: center;
+            padding: 12px;
+            background-color: rgba(20, 20, 20, 0.9);
             border-top: 1px solid rgba(255, 255, 255, 0.1);
+            gap: 8px;
         }
 
         #chatbot-input {
             flex: 1;
             background-color: #000000;
             border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 10px;
-            border-radius: 6px;
+            padding: 10px 12px;
+            border-radius: 8px;
             color: #ffffff;
             font-size: 0.9rem;
             outline: none;
+            transition: border-color 0.2s;
         }
 
         #chatbot-input:focus { border-color: #ffffff; }
+
+        /* 음성 인식 마이크 버튼 추가 */
+        #chatbot-mic-btn {
+            background: none;
+            border: none;
+            color: #888888;
+            font-size: 1.1rem;
+            cursor: pointer;
+            padding: 5px;
+            transition: color 0.2s;
+        }
+
+        #chatbot-mic-btn:hover { color: #ffffff; }
 
         #chatbot-send-btn {
             background-color: #ffffff;
             color: #000000;
             border: none;
-            padding: 0 15px;
-            margin-left: 8px;
-            border-radius: 6px;
+            padding: 10px 14px;
+            border-radius: 8px;
             font-weight: bold;
             cursor: pointer;
+            transition: opacity 0.2s;
         }
+
+        #chatbot-send-btn:hover { opacity: 0.85; }
 
         footer {
             text-align: center;
-            padding: 25px;
+            padding: 30px;
             background-color: #000000;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: #666666;
@@ -329,7 +364,7 @@
             margin-top: 8px;
             color: #888888;
             font-size: 0.8rem;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
         }
     </style>
 </head>
@@ -342,9 +377,9 @@
             <p class="tagline">대한민국을 살아가는 학생 개발자, 유튜버 입니다.</p>
             
             <div class="social-icons">
-                <a href="https://github.com/@samkimjiwoo" target="_blank" title="GitHub" class="icon-btn"><i class="fa-brands fa-github"></i></a>
+                <a href="https://github.com" target="_blank" title="GitHub" class="icon-btn"><i class="fa-brands fa-github"></i></a>
                 <a href="https://youtube.com/channel/UCbAqgKjHOsttp_sFvGJ1pNA?si=dKZLtJ53Swo3Jn8n" target="_blank" title="YouTube" class="icon-btn"><i class="fa-brands fa-youtube"></i></a>
-                <a href="https://discord.gg/yrA5UqEz" target="_blank" title="Discord" class="icon-btn"><i class="fa-brands fa-discord"></i></a>
+                <a href="https://discord.com" target="_blank" title="Discord" class="icon-btn"><i class="fa-brands fa-discord"></i></a>
                 <a href="https://open.spotify.com" target="_blank" title="Spotify Profile" class="icon-btn"><i class="fa-brands fa-spotify"></i></a>
                 <a href="mailto:ffdffd9212@gmail.com" title="Email" class="icon-btn"><i class="fa-solid fa-envelope"></i></a>
             </div>
@@ -359,7 +394,7 @@
 
         <section class="section">
             <h2>🎧 My Favorite Playlist</h2>
-            <div class="project-card" style="padding: 12px; background-color: #000000;">
+            <div class="project-card" style="padding: 12px; background: rgba(0,0,0,0.8);">
                 <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/31oq3rekzq37nhc7j7zcnvxuvp6i?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
             </div>
         </section>
@@ -368,7 +403,7 @@
             <h2>🖥️ My PC Setup</h2>
             <div class="project-card">
                 <h3>현재 사용 중인 컴퓨터 사양</h3>
-                <p>하드웨어와 기기를 좋아하는 저의 메인 작업 환경입니다.</p>
+                <p>하드웨어와 기기를 좋아하는 저의 메인 작업 환경입니다. (태그를 눌러보세요!)</p>
                 <div class="skills-grid" style="margin-top: 15px;">
                     <span class="skill-tag">CPU: AMD Ryzen 3 3200G</span>
                     <span class="skill-tag">GPU: AMD Radeon Vega 8 (2GB)</span>
@@ -390,7 +425,7 @@
                     <span class="skill-tag">Galaxy S5</span>
                     <span class="skill-tag">Galaxy S4 (컴백)</span>
                     <span class="skill-tag">iPhone SE2</span>
-                    <span class="skill-tag" style="background-color: #333333; color: #fff; border-color: #ffffff;">iPhone 13 (Current)</span>
+                    <span class="skill-tag" style="background-color: #ffffff; color: #000000; font-weight: 700;">iPhone 13 (Current)</span>
                 </div>
             </div>
         </section>
@@ -407,7 +442,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2026년 9월 5일에 추가된 서버</p>
+        <p>&copy; 2026년 박지우 포트폴리오</p>
         <div class="total-counter">TOTAL VISITS: <span id="visit-count">1</span></div>
     </footer>
 
@@ -416,17 +451,18 @@
 
     <div id="chatbot-container">
         <div class="chatbot-header">
-            <h3>AI 챗봇</h3>
+            <h3>✨ Jiwoo's AI Assistant</h3>
             <button id="chatbot-close-btn"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <div class="chatbot-messages" id="chatbot-messages"></div>
         <div class="chatbot-input-area">
+            <button id="chatbot-mic-btn" title="음성으로 말하기"><i class="fa-solid fa-microphone"></i></button>
             <input type="text" id="chatbot-input" placeholder="메시지를 입력하세요...">
             <button id="chatbot-send-btn">전송</button>
         </div>
     </div>
 
-    <!-- 스크립트: 챗봇 날아오는 애니메이션 + 타자 치는 효과(Typewriter) -->
+    <!-- 스크립트: 방문자수, 슬라이드 애니메이션, 타자효과, 음성인식(STT), Gemini API (3.6) -->
     <script>
         // 방문자 수 카운터
         let visits = localStorage.getItem('site_total_visits');
@@ -445,6 +481,7 @@
         const sendBtn = document.getElementById('chatbot-send-btn');
         const inputField = document.getElementById('chatbot-input');
         const messagesArea = document.getElementById('chatbot-messages');
+        const micBtn = document.getElementById('chatbot-mic-btn');
 
         let isWelcomed = false;
 
@@ -454,7 +491,6 @@
                 container.classList.remove('active');
             } else {
                 container.classList.add('active');
-                // 최초 열릴 때 환영 인사 타자 효과 출력
                 if (!isWelcomed) {
                     isWelcomed = true;
                     appendTypewriterMessage("안녕하세요! 박지우 님의 AI 비서입니다. 무엇이든 물어보세요!", 'bot');
@@ -465,6 +501,34 @@
         closeBtn.addEventListener('click', () => {
             container.classList.remove('active');
         });
+
+        // 웹 음성 인식 (STT) 기능 연동
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        if (SpeechRecognition) {
+            const recognition = new SpeechRecognition();
+            recognition.lang = 'ko-KR';
+            recognition.interimResults = false;
+
+            micBtn.addEventListener('click', () => {
+                micBtn.style.color = '#ffffff';
+                micBtn.style.textShadow = '0 0 10px #fff';
+                recognition.start();
+            });
+
+            recognition.onresult = (event) => {
+                const speechText = event.results[0][0].transcript;
+                inputField.value = speechText;
+                micBtn.style.color = '#888888';
+                micBtn.style.textShadow = 'none';
+            };
+
+            recognition.onerror = () => {
+                micBtn.style.color = '#888888';
+                micBtn.style.textShadow = 'none';
+            };
+        } else {
+            micBtn.style.display = 'none'; // 브라우저가 지원하지 않으면 마이크 버튼 숨김
+        }
 
         async function handleSendMessage() {
             const text = inputField.value.trim();
@@ -477,7 +541,7 @@
             const loadingId = appendMessage('생각 중입니다...', 'bot');
 
             try {
-                const apiKey = "AQ.Ab8RN6JT2aVrdAeHb4bp7Wcmy3RqhplW49tyEAqC3T7JEIPCcQ"; 
+                const apiKey = "여기에_본인의_GEMINI_API_KEY를_넣으세요"; 
                 const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=${apiKey}`;
 
                 const response = await fetch(apiUrl, {
@@ -491,7 +555,6 @@
                 const data = await response.json();
                 const botReply = data.candidates?.[0]?.content?.parts?.[0]?.text || "답변을 가져오지 못했어요.";
 
-                // 로딩 메시지 제거 후 타이핑 효과로 답변 출력
                 loadingId.remove();
                 appendTypewriterMessage(botReply, 'bot');
             } catch (error) {
@@ -514,14 +577,14 @@
             return msgDiv;
         }
 
-        // 타자 치는 효과(Typewriter) 함수
+        // 타자 치는 효과 (Typewriter) 함수
         function appendTypewriterMessage(text, sender) {
             const msgDiv = document.createElement('div');
             msgDiv.classList.add('message', sender);
             messagesArea.appendChild(msgDiv);
 
             let i = 0;
-            const speed = 25; // 타이핑 속도 (밀리초)
+            const speed = 20; // 타이핑 속도
 
             function type() {
                 if (i < text.length) {
