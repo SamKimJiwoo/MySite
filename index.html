@@ -35,7 +35,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* 사이버펑크 네온 카드 스타일 + 등장 애니메이션 */
+        /* 사이버펑크 네온 카드 스타일 */
         .cyber-card {
             background: rgba(10, 10, 18, 0.85);
             border: 1px solid rgba(0, 243, 255, 0.2);
@@ -51,6 +51,7 @@
         .cyber-card:nth-child(1) { animation-delay: 0.1s; }
         .cyber-card:nth-child(2) { animation-delay: 0.2s; }
         .cyber-card:nth-child(3) { animation-delay: 0.3s; }
+        .cyber-card:nth-child(4) { animation-delay: 0.4s; }
 
         @keyframes cardSlideUp {
             from { opacity: 0; transform: translateY(20px); }
@@ -204,7 +205,55 @@
             transform: translateY(-2px);
         }
 
-        /* 네온 디지털 시계 스타일 + 펄스 애니메이션 */
+        /* 시스템 상태 위젯 스타일 */
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 12px;
+        }
+
+        .status-item {
+            background: rgba(5, 5, 10, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            padding: 12px 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .status-label {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            color: #8a8a9e;
+            letter-spacing: 1px;
+        }
+
+        .status-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #00ff66;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #00ff66;
+            animation: statusBlink 1.5s infinite;
+        }
+
+        @keyframes statusBlink {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.3; transform: scale(0.8); }
+        }
+
+        /* 네온 디지털 시계 스타일 */
         .cyber-clock-wrapper {
             display: flex;
             justify-content: center;
@@ -238,7 +287,6 @@
             transition: transform 0.15s ease, border-color 0.15s ease;
         }
 
-        /* 숫자가 바뀔 때 톡 튀어 오르는 애니메이션 클래스 */
         .clock-box.pulse {
             transform: scale(1.08);
             border-color: #00f3ff;
@@ -292,7 +340,7 @@
     <header class="hero">
         <div class="profile-card">
             <div class="profile-img">⚡</div>
-            <h1>안녕하세요, <span class="highlight">박지우</span>입니다!</h1>
+            <h1>갤4G OWNER <span class="highlight">"JIWOO"</span></h1>
             <p class="tagline">대한민국을 살아가는 학생 개발자, 유튜버 입니다.</p>
             
             <div class="social-icons">
@@ -306,6 +354,31 @@
     </header>
 
     <main class="container">
+        <!-- 시스템 상태 위젯 -->
+        <section class="section">
+            <h2><i class="fa-solid fa-server"></i> System Status</h2>
+            <div class="cyber-card">
+                <div class="status-grid">
+                    <div class="status-item">
+                        <span class="status-label">SERVER STATUS</span>
+                        <span class="status-value"><span class="status-dot"></span> ONLINE</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-label">NETWORK PING</span>
+                        <span class="status-value" style="color: #00f3ff;" id="ping-text">14 ms</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-label">PROTOCOL</span>
+                        <span class="status-value" style="color: #ff007f;">HTTPS (SECURE)</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-label">HOSTING</span>
+                        <span class="status-value">GitHub Pages</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- 네온 디지털 시계 -->
         <section class="section">
             <h2><i class="fa-solid fa-clock"></i> Live System Clock</h2>
@@ -361,7 +434,7 @@
         <div class="total-counter">TOTAL VISITS: <span id="visit-count">1</span></div>
     </footer>
 
-    <!-- 실시간 애니메이션 스크립트 -->
+    <!-- 실시간 스크립트 -->
     <script>
         // 방문자 수 카운터 로직
         let visits = localStorage.getItem('site_total_visits');
@@ -372,6 +445,12 @@
         }
         localStorage.setItem('site_total_visits', visits);
         document.getElementById('visit-count').textContent = visits;
+
+        // 핑(Ping) 값을 실시간으로 미세하게 변동시켜 생동감 부여
+        setInterval(() => {
+            const randomPing = Math.floor(Math.random() * 6) + 11;
+            document.getElementById('ping-text').textContent = randomPing + ' ms';
+        }, 3000);
 
         // 시계 갱신 및 펄스 애니메이션 로직
         function updateClock() {
@@ -389,7 +468,6 @@
             const el = document.getElementById(elementId);
             if (el.textContent !== newValue) {
                 el.textContent = newValue;
-                // 값이 바뀔 때 펄스 애니메이션 효과 부여
                 el.classList.add('pulse');
                 setTimeout(() => {
                     el.classList.remove('pulse');
