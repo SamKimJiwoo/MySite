@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>jiwoo1119.kro.kr - Portfolio & AI</title>
+    <title>ISSA STUDIO JIWOO</title>
     <!-- 구글 폰트 -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
     <!-- 폰트어썸 아이콘 -->
@@ -42,24 +42,23 @@
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* 글래스 박스를 누르거나 올릴 때 붕 뜨는 효과 */
         .glass-box:hover, .glass-box:active {
             transform: translateY(-5px);
             border-color: rgba(255, 255, 255, 0.3);
             box-shadow: 0 12px 40px rgba(255, 255, 255, 0.08);
         }
 
-        /* 상단 히어로 섹션 (글래스 적용) */
+        /* 상단 히어로 섹션 */
         .hero {
             background: radial-gradient(circle at center, rgba(30, 30, 30, 0.4) 0%, rgba(0, 0, 0, 0.8) 80%);
-            padding: 100px 20px;
+            padding: 80px 20px;
             text-align: center;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .profile-img {
-            font-size: 65px;
-            margin-bottom: 20px;
+            font-size: 60px;
+            margin-bottom: 15px;
             animation: bounce 2s infinite;
             filter: drop-shadow(0 0 12px rgba(255,255,255,0.4));
         }
@@ -70,9 +69,9 @@
         }
 
         .hero h1 {
-            font-size: 2.4rem;
+            font-size: 2.2rem;
             font-weight: 700;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             color: #ffffff;
             letter-spacing: -0.5px;
         }
@@ -84,9 +83,9 @@
         }
 
         .tagline {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: #888888;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .social-icons {
@@ -99,13 +98,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 48px;
-            height: 48px;
+            width: 44px;
+            height: 44px;
             background-color: rgba(20, 20, 20, 0.8);
             border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 50%;
             color: #ffffff;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             text-decoration: none;
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
@@ -123,239 +122,101 @@
             max-width: 720px;
             width: 100%;
             margin: 0 auto;
-            padding: 50px 20px;
+            padding: 40px 20px;
             flex: 1;
         }
 
         .section {
-            margin-bottom: 50px;
+            margin-bottom: 40px;
         }
 
         .section h2 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
+            font-size: 1.2rem;
+            margin-bottom: 12px;
             color: #ffffff;
             border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-            padding-bottom: 8px;
+            padding-bottom: 6px;
             letter-spacing: -0.3px;
         }
 
-        .section p {
-            color: #aaaaaa;
-        }
-
-        /* 글래스 카드 스타일 */
         .project-card {
             padding: 25px;
             border-radius: 14px;
             margin-bottom: 20px;
         }
 
-        .project-card h3 {
-            margin-bottom: 8px;
-            color: #ffffff;
-            font-size: 1.1rem;
-        }
-
-        .project-card p {
-            font-size: 0.95rem;
-            margin-bottom: 15px;
-            color: #888888;
-        }
-
-        /* 사양 및 폰 태그 (글래스 + 누를 때 붕 뜨는 효과) */
-        .skills-grid {
+        /* Sense UI 스타일 플립 시계 전용 CSS */
+        .flip-clock-wrapper {
             display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .skill-tag {
-            background: rgba(20, 20, 20, 0.7);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            color: #cccccc;
-            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-            cursor: pointer;
-        }
-
-        .skill-tag:hover, .skill-tag:active {
-            transform: translateY(-6px) scale(1.03);
-            background-color: #ffffff;
-            color: #000000;
-            border-color: #ffffff;
-            box-shadow: 0 5px 20px rgba(255, 255, 255, 0.4);
-        }
-
-        /* 챗봇 토글 버튼 */
-        #chatbot-toggle-btn {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            width: 58px;
-            height: 58px;
-            background-color: #ffffff;
-            color: #000000;
-            border: none;
-            border-radius: 50%;
-            font-size: 1.5rem;
-            cursor: pointer;
-            box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
-            z-index: 1000;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
+            gap: 12px;
         }
 
-        #chatbot-toggle-btn:hover {
-            transform: scale(1.1) rotate(10deg);
-            box-shadow: 0 0 35px rgba(255, 255, 255, 0.9);
-        }
-
-        /* 챗봇 창 슬라이드 애니메이션 */
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px) scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-
-        #chatbot-container {
-            position: fixed;
-            bottom: 100px;
-            right: 25px;
-            width: 350px;
-            height: 480px;
-            background: rgba(10, 10, 10, 0.92);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 16px;
-            display: none;
+        .flip-unit {
+            display: flex;
             flex-direction: column;
-            z-index: 1000;
-            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.9);
+            align-items: center;
+            gap: 6px;
+        }
+
+        .flip-card {
+            position: relative;
+            width: 64px;
+            height: 76px;
+            background: rgba(20, 20, 20, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 10px;
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.9);
+            overflow: hidden;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+        }
+
+        .flip-card .top, .flip-card .bottom {
+            position: absolute;
+            width: 100%;
+            height: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            left: 0;
             overflow: hidden;
         }
 
-        #chatbot-container.active {
-            display: flex;
-            animation: slideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        .flip-card .top {
+            top: 0;
+            background: linear-gradient(to bottom, rgba(45,45,45,0.95), rgba(22,22,22,0.95));
+            border-bottom: 1px solid rgba(0, 0, 0, 0.7);
+            align-items: flex-end;
+            padding-bottom: 2px;
         }
 
-        .chatbot-header {
-            background-color: rgba(20, 20, 20, 0.9);
-            padding: 15px 18px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .flip-card .bottom {
+            bottom: 0;
+            background: linear-gradient(to top, rgba(30,30,30,0.95), rgba(12,12,12,0.95));
+            align-items: flex-start;
+            padding-top: 2px;
         }
 
-        .chatbot-header h3 {
-            color: #ffffff;
-            font-size: 1rem;
-            margin: 0;
-            text-shadow: 0 0 8px rgba(255,255,255,0.3);
+        .flip-colon {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: rgba(255, 255, 255, 0.5);
+            margin-top: -22px;
         }
 
-        #chatbot-close-btn {
-            background: none;
-            border: none;
-            color: #888;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: color 0.2s;
-        }
-
-        #chatbot-close-btn:hover { color: #fff; }
-
-        .chatbot-messages {
-            flex: 1;
-            padding: 15px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            font-size: 0.9rem;
-        }
-
-        .message {
-            max-width: 80%;
-            padding: 11px 14px;
-            border-radius: 10px;
-            line-height: 1.4;
-            word-break: break-all;
-        }
-
-        .message.bot {
-            background-color: rgba(30, 30, 30, 0.8);
-            color: #dddddd;
-            align-self: flex-start;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .message.user {
-            background-color: #ffffff;
-            color: #000000;
-            align-self: flex-end;
+        .flip-label {
+            font-size: 0.65rem;
+            color: #888888;
+            letter-spacing: 1.5px;
             font-weight: 500;
         }
-
-        .chatbot-input-area {
-            display: flex;
-            align-items: center;
-            padding: 12px;
-            background-color: rgba(20, 20, 20, 0.9);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            gap: 8px;
-        }
-
-        #chatbot-input {
-            flex: 1;
-            background-color: #000000;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 10px 12px;
-            border-radius: 8px;
-            color: #ffffff;
-            font-size: 0.9rem;
-            outline: none;
-            transition: border-color 0.2s;
-        }
-
-        #chatbot-input:focus { border-color: #ffffff; }
-
-        #chatbot-mic-btn {
-            background: none;
-            border: none;
-            color: #888888;
-            font-size: 1.1rem;
-            cursor: pointer;
-            padding: 5px;
-            transition: color 0.2s;
-        }
-
-        #chatbot-mic-btn:hover { color: #ffffff; }
-
-        #chatbot-send-btn {
-            background-color: #ffffff;
-            color: #000000;
-            border: none;
-            padding: 10px 14px;
-            border-radius: 8px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: opacity 0.2s;
-        }
-
-        #chatbot-send-btn:hover { opacity: 0.85; }
 
         footer {
             text-align: center;
@@ -393,60 +254,45 @@
     </header>
 
     <main class="container">
+        <!-- Sense UI 스타일 플립 시계 섹션 -->
+        <section class="section">
+            <h2>🕒 Live Sense Clock</h2>
+            <div class="project-card glass-box" style="padding: 35px 20px;">
+                <div class="flip-clock-wrapper">
+                    <!-- 시 -->
+                    <div class="flip-unit">
+                        <div class="flip-card">
+                            <div class="top" id="hour-top">00</div>
+                            <div class="bottom" id="hour-bottom">00</div>
+                        </div>
+                        <span class="flip-label">HOURS</span>
+                    </div>
+                    <span class="flip-colon">:</span>
+                    <!-- 분 -->
+                    <div class="flip-unit">
+                        <div class="flip-card">
+                            <div class="top" id="minute-top">00</div>
+                            <div class="bottom" id="minute-bottom">00</div>
+                        </div>
+                        <span class="flip-label">MINUTES</span>
+                    </div>
+                    <span class="flip-colon">:</span>
+                    <!-- 초 -->
+                    <div class="flip-unit">
+                        <div class="flip-card">
+                            <div class="top" id="second-top">00</div>
+                            <div class="bottom" id="second-bottom">00</div>
+                        </div>
+                        <span class="flip-label">SECONDS</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="section">
             <h2>💻 About Me</h2>
             <div class="project-card glass-box">
                 <p style="color: #cccccc; margin: 0;">안녕하세요! 저는 대한민국 국적의 학생 입니다. 코딩, 컴퓨터를 좋아하고, 기기제품에 대해 관심이 제일 많습니다.</p>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>🎧 My Favorite Playlist</h2>
-            <div class="project-card glass-box" style="padding: 12px;">
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/31oq3rekzq37nhc7j7zcnvxuvp6i?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>🖥️ My PC Setup</h2>
-            <div class="project-card glass-box">
-                <h3>현재 사용 중인 컴퓨터 사양</h3>
-                <p>하드웨어와 기기를 좋아하는 저의 메인 작업 환경입니다. (태그를 눌러보세요!)</p>
-                <div class="skills-grid" style="margin-top: 15px;">
-                    <span class="skill-tag">CPU: AMD Ryzen 3 3200G</span>
-                    <span class="skill-tag">GPU: AMD Radeon Vega 8 (2GB)</span>
-                    <span class="skill-tag">Mainboard: ASRock B450M-HDV R4.0</span>
-                    <span class="skill-tag">SSD: imation 2.5 1TB</span>
-                    <span class="skill-tag">OS: Windows 11 / 10</span>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>📱 My Phone History</h2>
-            <div class="project-card glass-box">
-                <h3>지금까지 거쳐간 스마트폰들</h3>
-                <p>갤럭시 S3부터 시작해서 아이폰 13까지, 수많은 기기를 거쳐왔습니다!</p>
-                <div class="skills-grid" style="margin-top: 15px;">
-                    <span class="skill-tag">Galaxy S3</span>
-                    <span class="skill-tag">Galaxy S4</span>
-                    <span class="skill-tag">Galaxy S5</span>
-                    <span class="skill-tag">Galaxy S4 (컴백)</span>
-                    <span class="skill-tag">iPhone SE2</span>
-                    <span class="skill-tag" style="background-color: #ffffff; color: #000000; font-weight: 700;">iPhone 13 (Current)</span>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>🛠️ Interests & Skills</h2>
-            <div class="project-card glass-box">
-                <div class="skills-grid">
-                    <span class="skill-tag">HTML / CSS</span>
-                    <span class="skill-tag">JavaScript</span>
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">Git & GitHub</span>
-                </div>
             </div>
         </section>
     </main>
@@ -456,25 +302,9 @@
         <div class="total-counter">TOTAL VISITS: <span id="visit-count">1</span></div>
     </footer>
 
-    <!-- 챗봇 UI -->
-    <button id="chatbot-toggle-btn" title="AI 챗봇 열기"><i class="fa-solid fa-robot"></i></button>
-
-    <div id="chatbot-container" class="glass-box" style="box-shadow: 0 15px 40px rgba(0,0,0,0.9);">
-        <div class="chatbot-header">
-            <h3>✨ Jiwoo's AI Assistant</h3>
-            <button id="chatbot-close-btn"><i class="fa-solid fa-xmark"></i></button>
-        </div>
-        <div class="chatbot-messages" id="chatbot-messages"></div>
-        <div class="chatbot-input-area">
-            <button id="chatbot-mic-btn" title="음성으로 말하기"><i class="fa-solid fa-microphone"></i></button>
-            <input type="text" id="chatbot-input" placeholder="메시지를 입력하세요...">
-            <button id="chatbot-send-btn">전송</button>
-        </div>
-    </div>
-
-    <!-- 스크립트 -->
+    <!-- 플립 시계 실시간 동작 스크립트 -->
     <script>
-        // 방문자 수 카운터
+        // 방문자 수 카운터 로직
         let visits = localStorage.getItem('site_total_visits');
         if (!visits) {
             visits = 128;
@@ -484,129 +314,30 @@
         localStorage.setItem('site_total_visits', visits);
         document.getElementById('visit-count').textContent = visits;
 
-        // 챗봇 제어 및 애니메이션
-        const toggleBtn = document.getElementById('chatbot-toggle-btn');
-        const container = document.getElementById('chatbot-container');
-        const closeBtn = document.getElementById('chatbot-close-btn');
-        const sendBtn = document.getElementById('chatbot-send-btn');
-        const inputField = document.getElementById('chatbot-input');
-        const messagesArea = document.getElementById('chatbot-messages');
-        const micBtn = document.getElementById('chatbot-mic-btn');
+        // 플립 시계 실시간 업데이트
+        function updateFlipClock() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
 
-        let isWelcomed = false;
-
-        toggleBtn.addEventListener('click', () => {
-            const isOpen = container.classList.contains('active');
-            if (isOpen) {
-                container.classList.remove('active');
-            } else {
-                container.classList.add('active');
-                if (!isWelcomed) {
-                    isWelcomed = true;
-                    appendTypewriterMessage("안녕하세요! 박지우 님의 AI 비서입니다. 무엇이든 물어보세요!", 'bot');
-                }
-            }
-        });
-
-        closeBtn.addEventListener('click', () => {
-            container.classList.remove('active');
-        });
-
-        // 웹 음성 인식 (STT) 기능 연동
-        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-        if (SpeechRecognition) {
-            const recognition = new SpeechRecognition();
-            recognition.lang = 'ko-KR';
-            recognition.interimResults = false;
-
-            micBtn.addEventListener('click', () => {
-                micBtn.style.color = '#ffffff';
-                micBtn.style.textShadow = '0 0 10px #fff';
-                recognition.start();
-            });
-
-            recognition.onresult = (event) => {
-                const speechText = event.results[0][0].transcript;
-                inputField.value = speechText;
-                micBtn.style.color = '#888888';
-                micBtn.style.textShadow = 'none';
-            };
-
-            recognition.onerror = () => {
-                micBtn.style.color = '#888888';
-                micBtn.style.textShadow = 'none';
-            };
-        } else {
-            micBtn.style.display = 'none';
+            setDigit('hour', hours);
+            setDigit('minute', minutes);
+            setDigit('second', seconds);
         }
 
-        async function handleSendMessage() {
-            const text = inputField.value.trim();
-            if (!text) return;
-
-            appendMessage(text, 'user');
-            inputField.value = '';
-            messagesArea.scrollTop = messagesArea.scrollHeight;
-
-            const loadingId = appendMessage('생각 중입니다...', 'bot');
-
-            try {
-                const apiKey = "AQ.Ab8RN6JT2aVrdAeHb4bp7Wcmy3RqhplW49tyEAqC3T7JEIPCcQ"; 
-                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=${apiKey}`;
-
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        contents: [{ parts: [{ text: text }] }]
-                    })
-                });
-
-                const data = await response.json();
-                const botReply = data.candidates?.[0]?.content?.parts?.[0]?.text || "답변을 가져오지 못했어요.";
-
-                loadingId.remove();
-                appendTypewriterMessage(botReply, 'bot');
-            } catch (error) {
-                loadingId.remove();
-                appendMessage("오류가 발생했습니다. API Key나 네트워크를 확인해주세요.", 'bot');
+        function setDigit(unit, value) {
+            const topEl = document.getElementById(`${unit}-top`);
+            const bottomEl = document.getElementById(`${unit}-bottom`);
+            
+            if (topEl.textContent !== value) {
+                topEl.textContent = value;
+                bottomEl.textContent = value;
             }
         }
 
-        sendBtn.addEventListener('click', handleSendMessage);
-        inputField.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') handleSendMessage();
-        });
-
-        function appendMessage(text, sender) {
-            const msgDiv = document.createElement('div');
-            msgDiv.classList.add('message', sender);
-            msgDiv.textContent = text;
-            messagesArea.appendChild(msgDiv);
-            messagesArea.scrollTop = messagesArea.scrollHeight;
-            return msgDiv;
-        }
-
-        // 타자 치는 효과 (Typewriter) 함수
-        function appendTypewriterMessage(text, sender) {
-            const msgDiv = document.createElement('div');
-            msgDiv.classList.add('message', sender);
-            messagesArea.appendChild(msgDiv);
-
-            let i = 0;
-            const speed = 20;
-
-            function type() {
-                if (i < text.length) {
-                    msgDiv.textContent += text.charAt(i);
-                    i++;
-                    messagesArea.scrollTop = messagesArea.scrollHeight;
-                    setTimeout(type, speed);
-                }
-            }
-            type();
-            return msgDiv;
-        }
+        setInterval(updateFlipClock, 1000);
+        updateFlipClock();
     </script>
 </body>
 </html>
