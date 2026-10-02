@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ISSA STUDIO JIWOO</title>
+    <title>갤4G OWNER "JIWOO"</title>
     <!-- 구글 폰트 -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
     <!-- 폰트어썸 아이콘 -->
@@ -32,7 +32,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* 전체 글래스모피즘 공통 클래스 */
+        /* 글래스박스 디자인 */
         .glass-box {
             background: rgba(15, 15, 15, 0.65);
             backdrop-filter: blur(12px);
@@ -42,16 +42,15 @@
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .glass-box:hover, .glass-box:active {
-            transform: translateY(-5px);
+        .glass-box:hover {
             border-color: rgba(255, 255, 255, 0.3);
             box-shadow: 0 12px 40px rgba(255, 255, 255, 0.08);
         }
 
-        /* 상단 히어로 섹션 */
+        /* 히어로 섹션 */
         .hero {
             background: radial-gradient(circle at center, rgba(30, 30, 30, 0.4) 0%, rgba(0, 0, 0, 0.8) 80%);
-            padding: 80px 20px;
+            padding: 70px 20px;
             text-align: center;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
@@ -69,11 +68,12 @@
         }
 
         .hero h1 {
-            font-size: 2.2rem;
+            font-size: 2.1rem;
             font-weight: 700;
             margin-bottom: 8px;
             color: #ffffff;
             letter-spacing: -0.5px;
+            word-break: keep-all; /* 이름 잘림 방지 */
         }
 
         .highlight {
@@ -83,15 +83,17 @@
         }
 
         .tagline {
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: #888888;
             margin-bottom: 20px;
+            word-break: keep-all;
         }
 
         .social-icons {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 12px;
+            flex-wrap: wrap;
         }
 
         .icon-btn {
@@ -117,7 +119,6 @@
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
         }
 
-        /* 본문 컨테이너 */
         .container {
             max-width: 720px;
             width: 100%;
@@ -127,11 +128,11 @@
         }
 
         .section {
-            margin-bottom: 40px;
+            margin-bottom: 35px;
         }
 
         .section h2 {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             margin-bottom: 12px;
             color: #ffffff;
             border-bottom: 1px solid rgba(255, 255, 255, 0.15);
@@ -140,17 +141,34 @@
         }
 
         .project-card {
-            padding: 25px;
+            padding: 22px;
             border-radius: 14px;
             margin-bottom: 20px;
         }
 
-        /* Sense UI 스타일 플립 시계 전용 CSS */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .skill-tag {
+            background: rgba(20, 20, 20, 0.7);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 6px 12px;
+            border-radius: 16px;
+            font-size: 0.85rem;
+            color: #cccccc;
+        }
+
+        /* 겹침 현상 해결된 깔끔한 플립 시계 스타일 */
         .flip-clock-wrapper {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
         }
 
         .flip-unit {
@@ -162,59 +180,44 @@
 
         .flip-card {
             position: relative;
-            width: 64px;
-            height: 76px;
-            background: rgba(20, 20, 20, 0.95);
+            width: 58px;
+            height: 68px;
+            background: #111111;
             border: 1px solid rgba(255, 255, 255, 0.25);
-            border-radius: 10px;
-            font-size: 2.4rem;
+            border-radius: 8px;
+            font-size: 2rem;
             font-weight: 700;
             color: #ffffff;
             display: flex;
             justify-content: center;
             align-items: center;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.9);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
             overflow: hidden;
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
         }
 
-        .flip-card .top, .flip-card .bottom {
+        /* 숫자가 겹치지 않도록 높이와 레이아웃 고정 */
+        .flip-card .number-display {
             position: absolute;
             width: 100%;
-            height: 50%;
+            height: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
-            left: 0;
-            overflow: hidden;
-        }
-
-        .flip-card .top {
-            top: 0;
-            background: linear-gradient(to bottom, rgba(45,45,45,0.95), rgba(22,22,22,0.95));
-            border-bottom: 1px solid rgba(0, 0, 0, 0.7);
-            align-items: flex-end;
-            padding-bottom: 2px;
-        }
-
-        .flip-card .bottom {
-            bottom: 0;
-            background: linear-gradient(to top, rgba(30,30,30,0.95), rgba(12,12,12,0.95));
-            align-items: flex-start;
-            padding-top: 2px;
+            background: linear-gradient(to bottom, rgba(35,35,35,0.95), rgba(15,15,15,0.95));
+            border-bottom: 1px solid rgba(0, 0, 0, 0.5);
         }
 
         .flip-colon {
-            font-size: 2.2rem;
+            font-size: 1.8rem;
             font-weight: bold;
-            color: rgba(255, 255, 255, 0.5);
-            margin-top: -22px;
+            color: rgba(255, 255, 255, 0.4);
+            margin-top: -18px;
         }
 
         .flip-label {
-            font-size: 0.65rem;
+            font-size: 0.6rem;
             color: #888888;
-            letter-spacing: 1.5px;
+            letter-spacing: 1px;
             font-weight: 500;
         }
 
@@ -254,16 +257,15 @@
     </header>
 
     <main class="container">
-        <!-- Sense UI 스타일 플립 시계 섹션 -->
+        <!-- Sense UI 스타일 플립 시계 -->
         <section class="section">
             <h2>🕒 Live Sense Clock</h2>
-            <div class="project-card glass-box" style="padding: 35px 20px;">
+            <div class="project-card glass-box" style="padding: 25px 20px;">
                 <div class="flip-clock-wrapper">
                     <!-- 시 -->
                     <div class="flip-unit">
                         <div class="flip-card">
-                            <div class="top" id="hour-top">00</div>
-                            <div class="bottom" id="hour-bottom">00</div>
+                            <div class="number-display" id="hour-box">00</div>
                         </div>
                         <span class="flip-label">HOURS</span>
                     </div>
@@ -271,8 +273,7 @@
                     <!-- 분 -->
                     <div class="flip-unit">
                         <div class="flip-card">
-                            <div class="top" id="minute-top">00</div>
-                            <div class="bottom" id="minute-bottom">00</div>
+                            <div class="number-display" id="minute-box">00</div>
                         </div>
                         <span class="flip-label">MINUTES</span>
                     </div>
@@ -280,8 +281,7 @@
                     <!-- 초 -->
                     <div class="flip-unit">
                         <div class="flip-card">
-                            <div class="top" id="second-top">00</div>
-                            <div class="bottom" id="second-bottom">00</div>
+                            <div class="number-display" id="second-box">00</div>
                         </div>
                         <span class="flip-label">SECONDS</span>
                     </div>
@@ -289,10 +289,26 @@
             </div>
         </section>
 
+        <!-- About Me -->
         <section class="section">
             <h2>💻 About Me</h2>
             <div class="project-card glass-box">
-                <p style="color: #cccccc; margin: 0;">안녕하세요! 저는 대한민국 국적의 학생 입니다. 코딩, 컴퓨터를 좋아하고, 기기제품에 대해 관심이 제일 많습니다.</p>
+                <p style="color: #cccccc; font-size: 0.95rem; margin: 0;">안녕하세요! 저는 대한민국 국적의 학생 입니다. 코딩, 컴퓨터를 좋아하고, 기기제품에 대해 관심이 제일 많습니다.</p>
+            </div>
+        </section>
+
+        <!-- My PC Setup (복구 완료!) -->
+        <section class="section">
+            <h2>🖥️ My PC Setup</h2>
+            <div class="project-card glass-box">
+                <h3 style="font-size: 1rem; color: #fff; margin-bottom: 5px;">현재 사용 중인 컴퓨터 사양</h3>
+                <div class="skills-grid">
+                    <span class="skill-tag">CPU: AMD Ryzen 3 3200G</span>
+                    <span class="skill-tag">GPU: AMD Radeon Vega 8 (2GB)</span>
+                    <span class="skill-tag">Mainboard: ASRock B450M-HDV R4.0</span>
+                    <span class="skill-tag">SSD: imation 2.5 1TB</span>
+                    <span class="skill-tag">OS: Windows 11 / 10</span>
+                </div>
             </div>
         </section>
     </main>
@@ -302,7 +318,7 @@
         <div class="total-counter">TOTAL VISITS: <span id="visit-count">1</span></div>
     </footer>
 
-    <!-- 플립 시계 실시간 동작 스크립트 -->
+    <!-- 스크립트 -->
     <script>
         // 방문자 수 카운터 로직
         let visits = localStorage.getItem('site_total_visits');
@@ -314,30 +330,20 @@
         localStorage.setItem('site_total_visits', visits);
         document.getElementById('visit-count').textContent = visits;
 
-        // 플립 시계 실시간 업데이트
-        function updateFlipClock() {
+        // 시계 실시간 갱신 로직 (겹침 방지형)
+        function updateClock() {
             const now = new Date();
             const hours = String(now.getHours()).padStart(2, '0');
             const minutes = String(now.getMinutes()).padStart(2, '0');
             const seconds = String(now.getSeconds()).padStart(2, '0');
 
-            setDigit('hour', hours);
-            setDigit('minute', minutes);
-            setDigit('second', seconds);
+            document.getElementById('hour-box').textContent = hours;
+            document.getElementById('minute-box').textContent = minutes;
+            document.getElementById('second-box').textContent = seconds;
         }
 
-        function setDigit(unit, value) {
-            const topEl = document.getElementById(`${unit}-top`);
-            const bottomEl = document.getElementById(`${unit}-bottom`);
-            
-            if (topEl.textContent !== value) {
-                topEl.textContent = value;
-                bottomEl.textContent = value;
-            }
-        }
-
-        setInterval(updateFlipClock, 1000);
-        updateFlipClock();
+        setInterval(updateClock, 1000);
+        updateClock();
     </script>
 </body>
 </html>
