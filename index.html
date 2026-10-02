@@ -344,11 +344,11 @@
             <p class="tagline">대한민국을 살아가는 학생 개발자, 유튜버 입니다.</p>
             
             <div class="social-icons">
-                <a href="https://github.com/SamKimJiwoo" target="_blank" title="GitHub" class="icon-btn"><i class="fa-brands fa-github"></i></a>
+                <a href="https://github.com" target="_blank" title="GitHub" class="icon-btn"><i class="fa-brands fa-github"></i></a>
                 <a href="https://youtube.com/channel/UCbAqgKjHOsttp_sFvGJ1pNA?si=dKZLtJ53Swo3Jn8n" target="_blank" title="YouTube" class="icon-btn"><i class="fa-brands fa-youtube"></i></a>
                 <a href="https://discord.com" target="_blank" title="Discord" class="icon-btn"><i class="fa-brands fa-discord"></i></a>
                 <a href="https://open.spotify.com" target="_blank" title="Spotify Profile" class="icon-btn"><i class="fa-brands fa-spotify"></i></a>
-                <a href="mailto:contact@krpjw-1119.kro.kr" title="Email" class="icon-btn"><i class="fa-solid fa-envelope"></i></a>
+                <a href="mailto:ffdffd9212@gmail.com" title="Email" class="icon-btn"><i class="fa-solid fa-envelope"></i></a>
             </div>
         </div>
     </header>
@@ -373,11 +373,8 @@
                     </div>
                     <div class="status-item">
                         <span class="status-label">HOSTING</span>
-                        <span class="status-value">Windows Server 2003</span>
+                        <span class="status-value">GitHub Pages</span>
                     </div>
-                    <div class="status-item">
-                        <span class="status-label">MORE..</span>
-                        <span class="status-value">이 사이트는 윈도우 서버 2003으로 관리되고 있습니다.</span>
                 </div>
             </div>
         </section>
@@ -434,17 +431,17 @@
 
     <footer>
         <p>2026년 9월 5일에 추가된 서버</p>
-        <div class="total-counter">TOTAL VISITS: <span id="visit-count">1</span></div>
+        <div class="total-counter">TOTAL VISITS: <span id="visit-count">0</span></div>
     </footer>
 
     <!-- 실시간 스크립트 -->
     <script>
-        // 방문자 수 카운터 로직
+        // 방문자 수 카운터 로직 (0부터 시작)
         let visits = localStorage.getItem('site_total_visits');
         if (!visits) {
-            visits = 128;
+            visits = 0; // 첫 방문 시 0으로 초기화
         } else {
-            visits = parseInt(visits) + 1;
+            visits = parseInt(visits) + 1; // 재방문 시 1씩 증가
         }
         localStorage.setItem('site_total_visits', visits);
         document.getElementById('visit-count').textContent = visits;
